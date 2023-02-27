@@ -1,4 +1,4 @@
-# Golang-Zero-to-Hero
+# Introduction to GoLang
 
 ## Why Golang ?
 
@@ -45,4 +45,3 @@ So, it is not completely correct to say Golang is better than Java or Java is be
 It is a known fact that popular devops applications such as Kubernetes, Docker and many are written in Golang. But why ? 
 
 As Go was created with concurrency in mind, writing concurrent and parallel programs is made simpler. Applications for DevOps, which frequently need to handle numerous containers or processes at once, should pay special attention to this. This is one of the primary reasons why Golang is a popular choice in DevOps community.
-
