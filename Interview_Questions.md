@@ -34,3 +34,41 @@ Q: What is the difference between both the lines ?
 A: In the first declaration, user has explicitly defined the variable types as intiger. Whereas in the second line, go compiler automatically determine the data type of a variable based on its initialization value. So, Go has the capability to infer the type of initialized variables.
 
 However, it is still a good practice to declare the variable type explicitly, even if Go can infer it. Explicitly declaring the variable type can make the code more readable and can also help to prevent errors. For example, if you accidentally initialize a variable with a different data type than what you intended, the compiler will still infer the wrong type, and it may cause unexpected behavior or errors in the program.
+
+
+Q: What is the difference between array and slice in golang ?
+
+A: An array is a set of elements with a specified size that are stored in contiguous memory locations.
+   - The array's size is fixed at declaration time and cannot be modified.
+   - The complete array is kept in a single block of memory, and each element of the array takes up the same amount of memory.
+
+A slice, on the other hand, is a dynamic data structure made up of a length, a capacity, and a pointer to an underlying array. Because they don't need as much memory for the pointer and capacity values, slices are usually smaller than arrays.
+
+Suppose you are building an application that processes images and you need to store the pixel values of the image. In this case, the size of the image is known ahead of time and does not change dynamically. You could use an array to store the pixel values of the image, with each element of the array representing a pixel. This would be more memory-efficient than using a slice, which would require additional memory for the pointer and capacity values.
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// Declare an array to store pixel values of a 640x480 image
+	var pixels [640][480]int
+
+	// Loop over the array and set each pixel value to 0
+	for i := 0; i < 640; i++ {
+		for j := 0; j < 480; j++ {
+			pixels[i][j] = 0
+		}
+	}
+
+	// Print the value of the first pixel
+	fmt.Println(pixels[0][0])
+}
+```
+
+In this example, we declare an array with dimensions of 640x480 to store the pixel values of an image. We then loop over the array and set each pixel value to 0. Finally, we print the value of the first pixel to verify that it has been set to 0.
+
+Using an array in this case is more memory-efficient because we know the exact size of the image and can allocate the appropriate amount of memory for the pixel values. If we were to use a slice, we would need to allocate additional memory for the pointer and capacity values, which would be unnecessary since the size of the data is known ahead of time.
