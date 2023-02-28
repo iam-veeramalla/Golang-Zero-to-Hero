@@ -25,3 +25,12 @@ Here is a detailed difference between the two:
 **Resource Allocation:** User-level threads are allocated resources by the user-level thread library, which means that the library can allocate resources based on its own policies and priorities. Kernel-level threads are allocated resources by the operating system kernel, which means that resource allocation is based on the kernel's policies and priorities.
 
 **Scalability:** User-level threads are generally more scalable than kernel-level threads because they can be implemented with a lightweight thread library that does not rely on the operating system kernel. This makes it possible to create and manage thousands or even millions of user-level threads in a single application. In contrast, kernel-level threads require more resources and overhead, which can limit scalability.
+
+Q: What is the difference between both the lines ?
+
+`var a int = 5`
+`var a = 5`
+
+A: In the first declaration, user has explicitly defined the variable types as intiger. Whereas in the second line, go compiler automatically determine the data type of a variable based on its initialization value. So, Go has the capability to infer the type of initialized variables.
+
+However, it is still a good practice to declare the variable type explicitly, even if Go can infer it. Explicitly declaring the variable type can make the code more readable and can also help to prevent errors. For example, if you accidentally initialize a variable with a different data type than what you intended, the compiler will still infer the wrong type, and it may cause unexpected behavior or errors in the program.
